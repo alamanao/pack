@@ -62,10 +62,10 @@ sudo cp -r ../armbian/beikeyun/rootfs/* openwrt/ && sync
 
 # 制作可启动镜像
 
-
+rootfssize=640
 echo -e "$green \n 生成空镜像(.img)... $white"
 
-fallocate -l 640MB "$(date +%Y-%m-%d)-openwrt-beikeyun-auto-generate.img"
+fallocate -l ${rootfssize}MB "$(date +%Y-%m-%d)-openwrt-beikeyun-auto-generate.img"
 
 
 # 格式化镜像
