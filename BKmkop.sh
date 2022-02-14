@@ -61,17 +61,11 @@ fi
 sudo cp -r ../armbian/beikeyun/rootfs/* openwrt/ && sync
 
 # 制作可启动镜像
-echo && read -p "请输入ROOTFS分区大小(单位MB)，默认256M: " rootfssize
-[ $rootfssize ] || rootfssize=256
 
-openwrtsize=$(sudo du -hs openwrt | cut -d "M" -f 1)
-[ $rootfssize -lt $openwrtsize ] && \
-    echo -e "$red \n ROOTFS分区最少需要 $openwrtsize MB! $white" && \
-    exit
 
 echo -e "$green \n 生成空镜像(.img)... $white"
 
-fallocate -l ${rootfssize}MB "$(date +%Y-%m-%d)-openwrt-beikeyun-auto-generate.img"
+fallocate -l 640MB "$(date +%Y-%m-%d)-openwrt-beikeyun-auto-generate.img"
 
 
 # 格式化镜像
