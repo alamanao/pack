@@ -78,7 +78,7 @@ loop=$(sudo losetup -P -f --show *.img)
     #MBR引导
 sudo parted -s $loop  mklabel msdos> /dev/null 2>&1
     #创建分区1/设定主分区
-sudo parted $loop mkpart primary 1% 100%  >/dev/null 2>&1
+sudo parted $loop mkpart primary 2% 100%  >/dev/null 2>&1
     #
 loopp1=${loop}p1 
     #格式化分区1
